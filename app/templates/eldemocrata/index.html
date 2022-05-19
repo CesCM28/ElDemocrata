@@ -11,9 +11,11 @@ El Democrata
     <div class="Category">      
         {% for article in news %}
             {% if article['id_category'] == category['id'] %}
+        <a href="{{ url_for('eldemocrata.article_layout', idArticle=article['id']) }}">
             <div class="Article">
                 <p>{{ article['title'] }}</p>
             </div>
+        </a>
             {% endif %}
         {% endfor %}
     </div>

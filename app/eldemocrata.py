@@ -40,3 +40,20 @@ def category_layout(idCategory):
     categorys = c.fetchall()
 
     return render_template('eldemocrata/category.html', categorys=categorys, news=news)
+
+@bp.route('/article/<int:idArticle>', methods=['GET'])
+def article_layout(idArticle):
+    db, c = get_db()
+
+    c.execute(
+        '''select id,id_category,title,link_img
+        from news where id_category = %s''', (idArticle,)
+    )
+    news = c.fetchall()
+
+    c.execute(
+        'select id,description from category where status = 1'
+    )
+    categorys = c.fetchall()
+
+    return render_template('eldemocrata/article.html', categorys=categorys, news=news)
