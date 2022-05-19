@@ -9,7 +9,7 @@ instructions = [
             id INT PRIMARY KEY AUTO_INCREMENT,
             username VARCHAR(50) UNIQUE NOT NULL,
             password VARCHAR(100) NOT NULL,
-            name VARCHAR(100),
+            name VARCHAR(100)
         )
     """,
     """
@@ -25,7 +25,7 @@ instructions = [
             paragraph5 TEXT,
             paragraph6 TEXT,
             link_img VARCHAR(100) NOT NULL,
-            created_by INT NOT NULL,
+            created_by INT NOT NULL
         )
     """,
     """
@@ -33,6 +33,7 @@ instructions = [
             id INT PRIMARY KEY AUTO_INCREMENT,
             description VARCHAR(50),
             created_by INT NOT NULL,
+            status INT NOT NULL
         )
     """
 ]

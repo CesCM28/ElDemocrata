@@ -42,3 +42,27 @@ html body nav ul {
 html body nav ul li {
     display: inline-block;
 }
+
+html body footer {
+    background-color: #1e1e1e;
+    box-shadow: 3px 0 5px #aaa;
+    padding: 15px 30px;
+}
+
+html body footer p { 
+    transition: color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.icons {
+    margin: 25px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around
+}
+
+.category {
+    height: 100px;
+}
+

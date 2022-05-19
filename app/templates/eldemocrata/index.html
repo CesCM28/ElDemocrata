@@ -4,8 +4,25 @@
 Bienvendido
 {% endblock %}
 
+<!--
+{% block menu %}
+    
+{% endblock %}
+-->
+
 {% block content %}
 <div class="hero">
-    <div class=""></div>
+    {% for category in  categorys %}
+    <div class="category">
+        <h1>{{ category['description'] }}</h1>
+        {% for article in news %}
+            {% if article['id_category'] == category['id'] %}
+            <div class="article">
+                <p>{{ article['title'] }}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}
