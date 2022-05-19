@@ -62,7 +62,12 @@ html body footer p {
     justify-content: space-around
 }
 
-.category {
+.Article {
     height: 100px;
 }
 
+.Category {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}

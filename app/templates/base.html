@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<title>{% block title %}{% endblock %} - El Democrata</title>
+<title>{% block title %}{% endblock %}</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 <body>
@@ -11,14 +11,8 @@
         <nav>
             <ul>
                 {% for category in categorys %}
-                    <li><a href="#">{{ category['description'] }} </a></li>
-                <!--
-                <li><a href="#">Nacional</a></li>
-                <li><a href="#">Mundo</a></li>
-                <li><a href="#">Opinion</a></li>
-                -->
+                <li><a href="{{ url_for('eldemocrata.category_layout' ,idCategory=category['id']) }}">{{ category['description'] }} </a></li>
                 {% endfor %}
-                <!-- {% block menu %}{% endblock %} -->
             </ul>
         </nav>
     </header>

@@ -1,12 +1,11 @@
-from unicodedata import category
 from flask import (
-    Blueprint, render_template
+    Blueprint, render_template, request
 )
 from app.db import get_db
 
 bp = Blueprint('eldemocrata', __name__)
 
-@bp.route('/')
+@bp.route('/', methods=['GET'])
 def index():
     db, c = get_db()
     c.execute(
@@ -24,3 +23,20 @@ def index():
     news = c.fetchall()
 
     return render_template('eldemocrata/index.html', categorys=categorys, news=news)
+
+@bp.route('/category/<int:idCategory>', methods=['GET'])
+def category_layout(idCategory):
+    db, c = get_db()
+
+    c.execute(
+        '''select id,id_category,title,link_img
+        from news where id_category = %s''', (idCategory,)
+    )
+    news = c.fetchall()
+
+    c.execute(
+        'select id,description from category where status = 1'
+    )
+    categorys = c.fetchall()
+
+    return render_template('eldemocrata/category.html', categorys=categorys, news=news)
