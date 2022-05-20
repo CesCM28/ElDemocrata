@@ -3,3 +3,32 @@
 {% block title %}
 {{ title }}
 {% endblock %}
+
+<!--
+    id,id_category,paragraph1,paragraph2,paragraph3,paragraph4,paragraph5,paragraph6,title,link_img  news
+-->
+
+{% block content %}
+    <div class="hero">
+        <div class="ArtImage" ><img src="{{ news['link_img'] }}"></div>
+        <div class="title">{{ news['title'] }}</div>
+        <div class="note">
+            <p class="PNota">{{ news['paragraph1'] }}</p>
+            {% if news['paragraph2'] != None and news['paragraph2'] != '' %}
+                <p class="PNota">{{ news['paragraph2'] }}</p>
+            {% endif %}
+            {% if news['paragraph3'] != None and news['paragraph3'] != '' %}
+                <p class="PNota">{{ news['paragraph3'] }}no</p>
+            {% endif %}
+            {% if news['paragraph4'] != None and news['paragraph4'] != '' %}
+                <p class="PNota">{{ news['paragraph4'] }}nu</p>
+            {% endif %}
+            {% if news['paragraph5'] != None and news['paragraph5'] != '' %}
+                <p class="PNota">{{ news['paragraph5'] }}</p>
+            {% endif %}
+            {% if news['paragraph6'] != None and news['paragraph6'] != '' %}
+                <p class="PNota">{{ news['paragraph6'] }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
