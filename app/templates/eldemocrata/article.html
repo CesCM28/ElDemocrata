@@ -10,7 +10,12 @@
 
 {% block content %}
     <div class="hero">
-        <div class="ArtImage" ><img src="{{ news['link_img'] }}"></div>
+        <div class="ArtImage">
+            <img src="{{ news['link_img'] }}">
+        </div>
+        <div class="ArtImageOpacity">
+            <img src="{{ news['link_img'] }}"></div>   
+        </div>
         <div class="title">{{ news['title'] }}</div>
         <div class="note">
             <p class="PNota">{{ news['paragraph1'] }}</p>
