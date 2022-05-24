@@ -25,7 +25,8 @@ instructions = [
             paragraph5 TEXT,
             paragraph6 TEXT,
             link_img VARCHAR(100) NOT NULL,
-            created_by INT NOT NULL
+            created_by INT NOT NULL,
+            status INT NOT NULL
         )
     """,
     """

@@ -11,9 +11,9 @@ from .schema import instructions
 def get_db():
     if 'db' not in g:
         g.db = mysql.connector.connect(
-            host='127.0.0.1', #current_app.config['DATABASE_HOST'],
-            user='root', #current_app.config['DATABASE_USER'],
-            password='Platanito1*', #current_app.config['DATABASE_PASSWORD'],
+            host='eldemocratabd.cdhqhvsvsmni.us-west-1.rds.amazonaws.com', #current_app.config['DATABASE_HOST'],
+            user='admin', #current_app.config['DATABASE_USER'],
+            password='2ElDemocrataDb*', #current_app.config['DATABASE_PASSWORD'],
             database='eldemocrata'#current_app.config['DATABASE']
         )
         g.c = g.db.cursor(dictionary=True)

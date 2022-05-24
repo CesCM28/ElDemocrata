@@ -90,9 +90,15 @@ html body footer p {
     
 }
 
-
-
 .ArtImage Img {
     height: 300px;
-    position: absolute;
+    border-radius: 10px;
+    box-shadow: 3px 0 5px #aaa;
+
+    /* position: absolute; */
+}
+
+.ArtImage {
+    display: flex;
+    justify-content: center;
 }

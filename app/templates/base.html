@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 {% for category in categorys %}
-                <li><a href="{{ url_for('eldemocrata.category_layout' ,idCategory=category['id']) }}">{{ category['description'] }} </a></li>
+                <li><a href="{{ url_for('eldemocrata.category_layout' ,idCategory=category['id_category']) }}">{{ category['description'] }} </a></li>
                 {% endfor %}
             </ul>
         </nav>
