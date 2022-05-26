@@ -9,8 +9,8 @@
     <div class="Title">{{ category['description'] }}</div>
     <div class="Category">      
     {% for article in news %}
-        {% if article['id_category'] == category['id'] %}
-        <a href="{{ url_for('eldemocrata.article_layout', idArticle=article['id']) }}">
+        {% if article['id_category'] == category['id_category'] %}
+        <a href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
             <div class="ViewArticle">
                 <p>{{ article['title'] }}</p>
             </div>

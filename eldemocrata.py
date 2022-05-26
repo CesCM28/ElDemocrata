@@ -2,16 +2,16 @@ from distutils.log import debug
 from flask import Flask
 import os
 from flask import (
-    Blueprint, render_template, request
+    render_template, request
 )
 from DataBase.db import get_db
 
-application = Flask(__name__)
+app = Flask(__name__)
 #application.register_blueprint(bp)
 
 #bp = Blueprint('eldemocrata', __name__)
 
-@application.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     db, c = get_db()
     c.execute(
@@ -30,7 +30,7 @@ def index():
 
     return render_template('eldemocrata/index.html', categorys=categorys, news=news)
 
-@application.route('/category/<int:idCategory>', methods=['GET'])
+@app.route('/category/<int:idCategory>', methods=['GET'])
 def category_layout(idCategory):
     db, c = get_db()
 
@@ -49,11 +49,11 @@ def category_layout(idCategory):
         'select id_category,description from category where id_category = %s''', (idCategory,)
     )
     category = c.fetchone()
-    print(category)
+    print(news)
 
     return render_template('eldemocrata/category.html', categorys=categorys, news=news, category=category)
 
-@application.route('/article/<int:idArticle>', methods=['GET'])
+@app.route('/article/<int:idArticle>', methods=['GET'])
 def article_layout(idArticle):
     db, c = get_db()
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
     # removed before deploying a production app.
     #application.debug = True
-    application.run()
+    app.run()
 
     
     
