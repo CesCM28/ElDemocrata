@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<title>{% block title %}{% endblock %}</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Open Graph data -->
+    {% block meta %}{% endblock %}
+</head>
 <body>
     <header>
         <a href="/">

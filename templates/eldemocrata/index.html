@@ -4,6 +4,14 @@
 El Democrata
 {% endblock %}
 
+{% block meta %}
+<meta data-n-head="ssr" property="og:title" content="El Democrata" />
+<meta data-n-head="ssr" property="og:type" content="article" />
+<meta data-n-head="ssr" property="og:url" content=" http://www.eldemocrata.com/" />
+<meta data-n-head="ssr" property="og:image" content="http://eldemocrata.mx/favicon.png" />
+<meta data-n-head="ssr" property="og:description" content="Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua" />
+{% endblock %}
+
 {% block content %}
 <div class="hero">
     {% for category in  categorys %}
