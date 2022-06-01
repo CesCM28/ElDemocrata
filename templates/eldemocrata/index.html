@@ -7,13 +7,16 @@ El Democrata
 {% block content %}
 <div class="hero">
     {% for category in  categorys %}
-    <div class="Title">{{ category['description'] }}</div>
+    <div class="Title">
+        <a href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">{{ category['description'] }}</a> 
+    </div>
     <div class="Category">      
         {% for article in news %}
             {% if article['id_category'] == category['id_category'] %}
         <a href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
             <div class="ViewArticle">
-                <p>{{ article['title'] }}</p>
+                {{ article['title'] }}
+                <img src="{{ article['link_img'] }}">
             </div>
         </a>
             {% endif %}

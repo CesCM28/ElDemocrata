@@ -1,4 +1,3 @@
-from distutils.log import debug
 from flask import Flask
 import os
 from flask import (
@@ -6,12 +5,12 @@ from flask import (
 )
 from DataBase.db import get_db
 
-app = Flask(__name__)
+application = Flask(__name__)
 #application.register_blueprint(bp)
 
 #bp = Blueprint('eldemocrata', __name__)
 
-@app.route('/', methods=['GET'])
+@application.route('/', methods=['GET'])
 def index():
     db, c = get_db()
     c.execute(
@@ -20,7 +19,7 @@ def index():
     categorys = c.fetchall()
 
     c.execute(
-        '''select n.id_news,n.id_category,n.title
+        '''select n.id_news,n.id_category,n.title,n.link_img
             from news n 
             inner join category c
             on n.id_category = c.id_category
@@ -30,7 +29,7 @@ def index():
 
     return render_template('eldemocrata/index.html', categorys=categorys, news=news)
 
-@app.route('/category/<int:idCategory>', methods=['GET'])
+@application.route('/category/<int:idCategory>', methods=['GET'])
 def category_layout(idCategory):
     db, c = get_db()
 
@@ -49,11 +48,10 @@ def category_layout(idCategory):
         'select id_category,description from category where id_category = %s''', (idCategory,)
     )
     category = c.fetchone()
-    print(news)
 
     return render_template('eldemocrata/category.html', categorys=categorys, news=news, category=category)
 
-@app.route('/article/<int:idArticle>', methods=['GET'])
+@application.route('/article/<int:idArticle>', methods=['GET'])
 def article_layout(idArticle):
     db, c = get_db()
 
@@ -62,7 +60,6 @@ def article_layout(idArticle):
         from news where id_news = %s''', (idArticle,)
     )
     news = c.fetchone()
-    print(news)
 
     c.execute(
         'select id_category,description from category where status = 1'
@@ -75,8 +72,8 @@ def article_layout(idArticle):
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
     # removed before deploying a production app.
-    #application.debug = True
-    app.run()
+    application.debug = True
+    application.run()
 
     
     
