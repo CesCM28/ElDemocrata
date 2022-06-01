@@ -57,7 +57,7 @@ html body footer p {
 }
 
 .icons {
-    margin: 25px 0;
+    margin: 20px 0;
     width: 100%;
     display: flex;
     justify-content: space-around
@@ -70,7 +70,6 @@ html body footer p {
 .Title a {
     font-size: 15px;
     font-family: 'Rubik', sans-serif;
-    
     color: #000;
 }
 
@@ -118,14 +117,37 @@ html body footer p {
 }
 
 .ArtImage Img {
+    margin-top: 2px;
     height: 300px;
     border-radius: 10px;
-    box-shadow: 3px 0 5px #aaa;
-
-    /* position: absolute; */
+    box-shadow: 5px 5px 5px #aaa;
 }
 
 .ArtImage {
     display: flex;
     justify-content: center;
+}
+
+.note {
+    font-family: 'Rubik', sans-serif;
+    text-align: justify;
+    padding: 20px;
+}
+
+.title {
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.icon-link {
+    height: 40px;
+    width: 40px;
+}
+
+.redes {
+    width: auto;
+    max-height: 100%;
 }
