@@ -3,44 +3,75 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- Open Graph data -->
     {% block meta %}{% endblock %}
 </head>
+
 <body>
-    <header>
-        <a href="/">
-            <div class="logo">El Democrata</div>
-        </a>
+    <div class="container-fluid bg-black">
+        <header class="bg-black text-white">
+            <div class="row">
+                <div class="col p-2 d-flex justify-content-evenly">
+                    <a class="Title-Header" href="/">
+                        <h1>El Democrata</h1>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div> 
         <!--
             <div class="v-image__image v-image__image--contain" style="background-image: url(&quot;https://image-and-resources.s3.amazonaws.com/logo.svg&quot;); background-position: center center;"></div>
-        -->
-        <nav>
-            <ul>
-                {% for category in categorys %}
-                <li><a href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">{{ category['description'] }} </a></li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </header>
-    <section>{% block content %}{% endblock %}</section>
-    <footer >
-        <div>
-            <p>Nosotros</p>
-            <p>Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua</p>
+        --> 
+        <div class="container-fluid bg-black sticky-top">
+            <div class="row ">
+                <div class="col-sm shadow p-1">
+                    <nav>
+                        <ul class="nav justify-content-end">
+                            {% for category in categorys %}
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">
+                                    {{ category['description'] }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <div>
-            <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
-        </div>
-        <div class="icons">
-            <a class="icon-link" href="https://www.facebook.com/ElDemocrataMex/?ref=page_internal" >
-                <img class="redes" src="../static/Img/fblogo.png">
-            </a>
-            <a  class="icon-link" href="https://instagram.com/eldemocratamex?utm_medium=copy_link">
-                <img class="redes" src="../static/Img/iglogo.png">
-            </a>
-            <a  class="icon-link" href="https://twitter.com/ElDemocrataMex" class="icon-link">
-                <img class="redes" src="../static/Img/twlogo.png">
-            </a>
-        </div>
-    </footer>
+
+
+
+    {% block content %}{% endblock %}
+    <div class="container-fluid black">
+        <footer class="bd-footer py-4 py-md-5 mt-5">
+            <div>
+                <p>Nosotros</p>
+                <p>Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua</p>
+            </div>
+            <div>
+                <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+            </div>
+            <div class="icons">
+                <a class="icon-link" href="https://www.facebook.com/ElDemocrataMex/?ref=page_internal">
+                    <img class="redes" src="../static/Img/fblogo.png">
+                </a>
+                <a class="icon-link" href="https://instagram.com/eldemocratamex?utm_medium=copy_link">
+                    <img class="redes" src="../static/Img/iglogo.png">
+                </a>
+                <a class="icon-link" href="https://twitter.com/ElDemocrataMex" class="icon-link">
+                    <img class="redes" src="../static/Img/twlogo.png">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 </body>
