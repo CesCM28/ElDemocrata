@@ -6,50 +6,44 @@
 
 {% block meta %}
 <meta data-n-head="ssr" charset="utf-8">
-  <meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1">
-  <meta data-n-head="ssr" data-hid="description" name="description" content="">
-  <meta data-n-head="ssr" name="format-detection" content="telephone=no">
-  <meta data-n-head="ssr" name="title" content="El Demócrata">
-  <meta data-n-head="ssr" name="description"
-    content="Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua">
-  <meta data-n-head="ssr" property="og:type" content="website">
-  <meta data-n-head="ssr" property="og:url" content="http://eldemocrata.mx/">
-  <meta data-n-head="ssr" property="og:title" content="El Demócrata">
-  <meta data-n-head="ssr" property="og:description"
-    content="Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua">
-  <meta data-n-head="ssr" property="og:image" content="http://eldemocrata.mx/favicon.png">
-  <meta data-n-head="ssr" property="twitter:card" content="summary_large_image">
-  <meta data-n-head="ssr" property="twitter:url" content="http://eldemocrata.mx/">
-  <meta data-n-head="ssr" property="twitter:title" content="El Demócrata">
-  <meta data-n-head="ssr" property="twitter:description"
-    content="Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua">
-  <meta data-n-head="ssr" property="twitter:image" content="http://eldemocrata.mx/favicon.png">
-  <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://www.eldemocrata.mx/favicon.ico">
-  <link data-n-head="ssr" rel="preconnect" href="https://fonts.googleapis.com/">
-  <link data-n-head="ssr" rel="preconnect" href="https://fonts.gstatic.com/">
+<meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1">
+<meta data-n-head="ssr" data-hid="description" name="description" content="">
+<meta data-n-head="ssr" name="format-detection" content="telephone=no">
+<meta data-n-head="ssr" name="title" content="El Demócrata">
+<meta data-n-head="ssr" name="description"
+  content="Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua">
+<meta data-n-head="ssr" property="og:type" content="website">
+<meta data-n-head="ssr" property="og:url" content="http://eldemocrata.mx/">
+<meta data-n-head="ssr" property="og:title" content="El Demócrata">
+<meta data-n-head="ssr" property="og:description"
+  content="Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua">
+<meta data-n-head="ssr" property="og:image" content="http://eldemocrata.mx/favicon.png">
+<meta data-n-head="ssr" property="twitter:card" content="summary_large_image">
+<meta data-n-head="ssr" property="twitter:url" content="http://eldemocrata.mx/">
+<meta data-n-head="ssr" property="twitter:title" content="El Demócrata">
+<meta data-n-head="ssr" property="twitter:description"
+  content="Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua">
+<meta data-n-head="ssr" property="twitter:image" content="http://eldemocrata.mx/favicon.png">
+<link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://www.eldemocrata.mx/favicon.ico">
 {% endblock %}
 
 {% block content %}
-<div class="hero">
-    <div class="Title">
-        <a href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">{{ category['description'] }}</a>
-    </div>
-    <div class="Category">      
-      {% for article in news %}
-      <!-- {% if article['id_category'] == category['id_category'] %} -->
-        <div class="ViewArticle">
-          <a href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
-            <img src="{{ article['link_img'] }}">
-            <div class="card-title">
-              {{ article['title'] }}
-            </div> 
-            <div class="card-description">
-              {{ article['paragraph1'] }}
-            </div>
-          </a>
+<div class="container-fluid">
+  <div class="row">
+    {% for article in news %}
+    <div class="col-sm d-flex justify-content-evenly mt-2">
+      <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
+        <div class="card" style="width: 25rem;">
+          <img class="card-img-top" src="{{ article['link_img'] }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ article['title'] }}</h5>
+            <h5 class="card-subtitle mb-2 text-muted">{{ category['description'] }}</h5>
+            <p class="card-text">{{ article['paragraph1'] }}</p>
+          </div>
         </div>
-      <!-- {% endif %} -->
-    {% endfor %}
+      </a>
     </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

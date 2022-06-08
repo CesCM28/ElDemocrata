@@ -29,7 +29,7 @@ def index():
             on n.id_category = c.id_category
             where c.status = 1
             and c.id_category not in (4)
-            order by n.id_news
+            order by n.id_news desc
             limit 9
             '''
     )
@@ -43,7 +43,7 @@ def index():
             on n.id_category = c.id_category
             where c.status = 1
             and c.id_category in (4)
-            order by n.id_news
+            order by n.id_news desc
             limit 3
             '''
     )
@@ -57,7 +57,8 @@ def category_layout(idCategory):
 
     c.execute(
         '''select id_news,id_category,title,link_img,paragraph1
-        from news where id_category = %s''', (idCategory,)
+        from news where id_category = %s
+        order by id_news desc''', (idCategory,)
     )
     news = c.fetchall()
 

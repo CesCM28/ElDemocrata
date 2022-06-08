@@ -11,64 +11,91 @@
 </head>
 
 <body>
+    
     <div class="container-fluid bg-black">
         <header class="bg-black text-white">
             <div class="row">
                 <div class="col p-2 d-flex justify-content-evenly">
                     <a class="Title-Header" href="/">
-                        <h1>El Democrata</h1>
+                        <h1>El Demócrata</h1>
                     </a>
                 </div>
             </div>
         </header>
-    </div> 
-        <!--
+    </div>
+
+    <!--
             <div class="v-image__image v-image__image--contain" style="background-image: url(&quot;https://image-and-resources.s3.amazonaws.com/logo.svg&quot;); background-position: center center;"></div>
-        --> 
-        <div class="container-fluid bg-black sticky-top">
-            <div class="row ">
-                <div class="col-sm shadow p-1">
-                    <nav>
-                        <ul class="nav justify-content-end">
-                            {% for category in categorys %}
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">
-                                    {{ category['description'] }}
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </nav>
-                </div>
+        -->
+         
+    <div class="container-fluid sticky-top bg-black">
+        <div class="row ">
+            <div class="col shadow">
+                <nav>
+                    <ul class="nav justify-content-end">
+                        {% for category in categorys %}
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">
+                                {{ category['description'] }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
             </div>
         </div>
-
+    </div>
 
 
     {% block content %}{% endblock %}
-    <div class="container-fluid black">
-        <footer class="bd-footer py-4 py-md-5 mt-5">
-            <div>
-                <p>Nosotros</p>
-                <p>Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua</p>
+    <br>
+    
+        <div class="container-fluid bg-black text-white">
+            <div class="row">
+                <div class="col bg-black" style="height: 10px;">
+                    
+                </div>
             </div>
-            <div>
-                <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+        
+            <div class="row d-flex justify-content-start">
+                <div class="col bg-black">
+                    <p class="text-white">Nosotros</p>
+                    <p class="text-white">Somos un periódico digital enfocado en lo político con sede en la ciudad de
+                        Chihuahua</p>
+                    <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+                </div>
             </div>
-            <div class="icons">
-                <a class="icon-link" href="https://www.facebook.com/ElDemocrataMex/?ref=page_internal">
-                    <img class="redes" src="../static/Img/fblogo.png">
-                </a>
-                <a class="icon-link" href="https://instagram.com/eldemocratamex?utm_medium=copy_link">
-                    <img class="redes" src="../static/Img/iglogo.png">
-                </a>
-                <a class="icon-link" href="https://twitter.com/ElDemocrataMex" class="icon-link">
-                    <img class="redes" src="../static/Img/twlogo.png">
-                </a>
+            <div class="row">
+                <div class="col bg-black" style="height: 10px;">
+                    
+                </div>
             </div>
-        </footer>
-    </div>
+            <div class="row d-flex justify-content-evenly bg-black">
+                <div class="col bg-black">
+                    <a class="a-none" href="https://www.facebook.com/ElDemocrataMex/?ref=page_internal">
+                        <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/fblogo.png">
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="a-none" href="https://instagram.com/eldemocratamex?utm_medium=copy_link">
+                        <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/iglogo.png">
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="a-none" href="https://twitter.com/ElDemocrataMex">
+                        <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/twlogo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-black" style="height: 10px;">
+                    
+                </div>
+            </div>
+        </div>
+   
+
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

@@ -10,24 +10,22 @@
 <meta data-n-head="ssr" data-hid="description" name="description" content="">
 <meta data-n-head="ssr" name="format-detection" content="telephone=no">
 <meta data-n-head="ssr" name="title" content="El Demócrata">
-<meta data-n-head="ssr" name="description"
-  content="{{ news['title'] }}">
+<meta data-n-head="ssr" name="description" content="{{ news['title'] }}">
 <meta data-n-head="ssr" property="og:type" content="website">
 <meta data-n-head="ssr" property="og:url" content="http://eldemocrata.mx/">
 <meta data-n-head="ssr" property="og:title" content="El Demócrata">
-<meta data-n-head="ssr" property="og:description"
-  content="{{ news['title'] }}">
+<meta data-n-head="ssr" property="og:description" content="{{ news['title'] }}">
 <meta data-n-head="ssr" property="og:image" content="{{ news['link_img'] }}">
 <meta data-n-head="ssr" property="twitter:card" content="summary_large_image">
 <meta data-n-head="ssr" property="twitter:url" content="http://eldemocrata.mx/">
 <meta data-n-head="ssr" property="twitter:title" content="El Demócrata">
-<meta data-n-head="ssr" property="twitter:description"
-  content="{{ news['title'] }}">
+<meta data-n-head="ssr" property="twitter:description" content="{{ news['title'] }}">
 <meta data-n-head="ssr" property="twitter:image" content="{{ news['link_img'] }}">
 <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://www.eldemocrata.mx/favicon.ico">
 <link data-n-head="ssr" rel="preconnect" href="https://fonts.googleapis.com">
 <link data-n-head="ssr" rel="preconnect" href="https://fonts.gstatic.com">
-<link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap">
+<link data-n-head="ssr" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap">
 {% endblock %}
 
 <!--
@@ -35,33 +33,36 @@
 -->
 
 {% block content %}
-    <div class="hero">
-        <div class="ArtImage">
-            <img src="{{ news['link_img'] }}">
+<div class="container-fluid">
+    <div class="row m-1">
+        <div class="col">
+            <img class="rounded mx-auto d-block shadow" src="{{ news['link_img'] }}">
         </div>
-        <!--
-        <div class="ArtImageOpacity">
-            <img src="{{ news['link_img'] }}"></div>   
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h4>{{ news['title'] }}</h4>
         </div>
-        -->
-        <div class="title">{{ news['title'] }}</div>
-        <div class="note">
+    </div>
+    <div class="row">
+        <div class="col">
             <p class="PNota">{{ news['paragraph1'] }}</p>
             {% if news['paragraph2'] != None and news['paragraph2'] != '' %}
-                <p class="PNota">{{ news['paragraph2'] }}</p>
+            <p class="PNota">{{ news['paragraph2'] }}</p>
             {% endif %}
             {% if news['paragraph3'] != None and news['paragraph3'] != '' %}
-                <p class="PNota">{{ news['paragraph3'] }}no</p>
+            <p class="PNota">{{ news['paragraph3'] }}no</p>
             {% endif %}
             {% if news['paragraph4'] != None and news['paragraph4'] != '' %}
-                <p class="PNota">{{ news['paragraph4'] }}nu</p>
+            <p class="PNota">{{ news['paragraph4'] }}nu</p>
             {% endif %}
             {% if news['paragraph5'] != None and news['paragraph5'] != '' %}
-                <p class="PNota">{{ news['paragraph5'] }}</p>
+            <p class="PNota">{{ news['paragraph5'] }}</p>
             {% endif %}
             {% if news['paragraph6'] != None and news['paragraph6'] != '' %}
-                <p class="PNota">{{ news['paragraph6'] }}</p>
+            <p class="PNota">{{ news['paragraph6'] }}</p>
             {% endif %}
         </div>
     </div>
+</div>
 {% endblock %}

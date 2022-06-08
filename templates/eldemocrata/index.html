@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-El Democrata
+El Demócrata
 {% endblock %}
 
 {% block meta %}
@@ -29,49 +29,52 @@ El Democrata
 {% endblock %}
 
 {% block content %}
-
-<div class="row mt-3 ms-1">
-  <div class="col-3">
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-3">
       <h5>Opiniones</h5>
-  </div>
-</div>
-
-<div class="row">
-  {% for opinion in opinions %}
-  <div class="col d-flex justify-content-evenly">
-    <div class="card" style="width: 20rem;">
-      <!--<a href="{{ url_for('article_layout', idArticle=opinion['id_news']) }}">-->
-      <img class="card-img-top" src="{{ opinion['link_img'] }}">
-      <div class="card-body">
-        <h5 class="card-title">{{ opinion['title'] }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ opinion['description'] }}</h6>
-        <p class="card-text">{{ opinion['paragraph1'] }}</p>
-      </div>
-      <!--</a>-->
     </div>
   </div>
-  {% endfor %}
-</div>
 
-<div class="row mt-3 ms-1">
-  <div class="col-3">
+  <div class="row">
+    {% for opinion in opinions %}
+    <div class="col d-flex justify-content-evenly mt-2">
+      <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=opinion['id_news']) }}">
+        <div class="card" style="width: 25rem;">
+          <img class="card-img-top" src="{{ opinion['link_img'] }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ opinion['title'] }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ opinion['description'] }}</h6>
+            <p class="card-text">{{ opinion['paragraph1'] }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">
       <h5>Notas</h5>
-  </div>
-</div>
-<div class="row">
-  {% for article in news %}
-  <div class="col-sm d-flex justify-content-evenly mt-2">
-    <div class="card" style="width: 25rem;">
-      <!--<a href="{{ url_for('article_layout', idArticle=article['id_news']) }}">-->
-      <img class="card-img-top" src="{{ article['link_img'] }}">
-      <div class="card-body">
-        <h5 class="card-title">{{ article['title'] }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ article['description'] }}</h6>
-        <p class="card-text">{{ article['paragraph1'] }}</p>
-      </div>
-      <!--</a>-->
     </div>
   </div>
-{% endfor %}
+  <div class="row">
+    
+    {% for article in news %}
+    <div class="col-sm d-flex justify-content-evenly mt-2">
+      <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
+        <div class="card" style="width: 25rem;">
+          <img class="card-img-top" src="{{ article['link_img'] }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ article['title'] }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ article['description'] }}</h6>
+            <p class="card-text">{{ article['paragraph1'] }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+    
+  </div>
 </div>
 {% endblock %}
