@@ -1,7 +1,4 @@
 from flask import Flask
-import functools
-from logging import error
-import os
 from flask import (
     render_template, request, session, flash, redirect, url_for
 )
@@ -9,9 +6,6 @@ from werkzeug.security import check_password_hash
 from DataBase.db import get_db
 
 application = Flask(__name__)
-#application.register_blueprint(bp)
-
-#bp = Blueprint('eldemocrata', __name__)
 
 @application.route('/', methods=['GET'])
 def index():
@@ -91,63 +85,6 @@ def article_layout(idArticle):
     categorys = c.fetchall()
 
     return render_template('eldemocrata/article.html', categorys=categorys, news=news)
-
-#@application.route('/login', methods=['GET', 'POST'])
-#def login():
-#    if request.method == 'POST':
-#        username = request.form['username']
-#        password = request.form['password']
-#        db, c = get_db()
-#        error = None
-#        c.execute(
-#            "SELECT id,username,password FROM dbo.users WHERE username like ?", (username)
-#        )
-#        user = c.fetchone()
-
-#        if user is None:
-#            error = 'Usuario y/o contraseña invalida'
-#        elif not check_password_hash(user[2], password):
-#            error = 'Usuario y/o contraseña invalida'
-            
-
-#        if error is None:
-#            session.clear()
-#            session['user_id'] = user[0]
-
-#            from .Control import control
-
-#            application.register_blueprint(Control.bp)
-
-#            return redirect(url_for('Control.register'))
-
-#        flash(error)
-
-#    return render_template('Control/login.html')
-
-
-#@application.before_app_request
-#def load_logged_in_user():
-#    user_id = session.get('user_id')
-
-#    if user_id is None:
-#        g.user = None 
-#    else:
-#        db, c = get_db()
-#        c.execute(
-#            "select * from users where id = ?", (user_id)
-#        )
-#        g.user = c.fetchone()
-
-
-#def login_required(view):
-#    @functools.wraps(view)
-#    def wrapped_view(**kwargs):
-#        if g.user is None:
-#            return redirect(url_for('Control.login'))
-        
-#        return view(**kwargs)
-
-#    return wrapped_view
 
 
 if __name__ == "__main__":
