@@ -14,7 +14,7 @@ instructions = [
     """,
     """
         CREATE TABLE news (
-            id INT PRIMARY KEY AUTO_INCREMENT,
+            id_news INT PRIMARY KEY AUTO_INCREMENT,
             id_category INT NOT NULL,
             created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             title TEXT NOT NULL,
@@ -31,7 +31,7 @@ instructions = [
     """,
     """
         CREATE TABLE category (
-            id INT PRIMARY KEY AUTO_INCREMENT,
+            id_category INT PRIMARY KEY AUTO_INCREMENT,
             description VARCHAR(50),
             created_by INT NOT NULL,
             status INT NOT NULL

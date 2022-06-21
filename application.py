@@ -11,7 +11,7 @@ application = Flask(__name__)
 def index():
     db, c = get_db()
     c.execute(
-        'select id_category,description from category where status = 1'
+        'select id_category,description from categorys where status = 1'
     )
     categorys = c.fetchall()
 
@@ -19,7 +19,7 @@ def index():
         '''
         select n.id_news,n.id_category,n.title,n.link_img,n.paragraph1,c.description
             from news n 
-            inner join category c
+            inner join categorys c
             on n.id_category = c.id_category
             where c.status = 1
             and c.id_category not in (4)
@@ -33,7 +33,7 @@ def index():
         '''
         select n.id_news,n.id_category,n.title,n.link_img,n.paragraph1,c.description
             from news n 
-            inner join category c
+            inner join categorys c
             on n.id_category = c.id_category
             where c.status = 1
             and c.id_category in (4)
@@ -57,12 +57,12 @@ def category_layout(idCategory):
     news = c.fetchall()
 
     c.execute(
-        'select id_category,description from category where status = 1'
+        'select id_category,description from categorys where status = 1'
     )
     categorys = c.fetchall()
 
     c.execute(
-        'select id_category,description from category where id_category = %s''', (idCategory,)
+        'select id_category,description from categorys where id_category = %s''', (idCategory,)
     )
     category = c.fetchone()
 
@@ -80,7 +80,7 @@ def article_layout(idArticle):
     news = c.fetchone()
 
     c.execute(
-        'select id_category,description from category where status = 1'
+        'select id_category,description from categorys where status = 1'
     )
     categorys = c.fetchall()
 
