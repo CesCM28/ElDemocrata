@@ -30,11 +30,18 @@ instructions = [
         )
     """,
     """
-        CREATE TABLE category (
+        CREATE TABLE categorys (
             id_category INT PRIMARY KEY AUTO_INCREMENT,
             description VARCHAR(50),
             created_by INT NOT NULL,
             status INT NOT NULL
+        )
+    """,
+    """
+        CREATE TABLE ClicNotas (
+            id_Clic INT PRIMARY KEY AUTO_INCREMENT,
+            id_news INT NOT NULLl,
+            created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         )
     """
 ]
