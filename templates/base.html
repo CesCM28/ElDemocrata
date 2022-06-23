@@ -10,17 +10,17 @@
     {% block meta %}{% endblock %}
     <link data-n-head="ssr" rel="preconnect" href="https://fonts.googleapis.com">
     <link data-n-head="ssr" rel="preconnect" href="https://fonts.gstatic.com">
-    <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap">
+    <link data-n-head="ssr" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap">
 </head>
 
 <body>
-    
+
     <div class="container-fluid bg-black">
         <header class="bg-black text-white">
             <div class="row">
                 <div class="col p-2 d-flex justify-content-evenly">
                     <a class="Title-Header" href="/">
-                        <!-- <h1>El Demócrata</h1> -->
                         <img class="img-fluid mx-auto d-block" style="max-height: 50px;" src="../static/Img/logo.svg">
                     </a>
                 </div>
@@ -28,77 +28,107 @@
         </header>
     </div>
 
-    <!--
-            <div class="v-image__image v-image__image--contain" style="background-image: url(&quot;https://image-and-resources.s3.amazonaws.com/logo.svg&quot;); background-position: center center;"></div>
-        -->
-         
     <div class="container-fluid sticky-top bg-black">
-        <div class="row ">
-            <div class="col shadow">
-                <nav>
-                    <ul class="nav justify-content-end">
-                        {% for category in categorys %}
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">
-                                {{ category['description'] }}
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
+        <div class="row">
+            <div class="col" style="height: 30px;">
+                <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="" aria-controls="offcanvasExample">
+                    <img src="../static/Img/menu-outline.svg" style="height: 25px;">
+                </a>
             </div>
         </div>
     </div>
 
-
-    {% block content %}{% endblock %}
-    <br>
-    
-        <div class="container-fluid bg-black text-white">
-            <div class="row">
-                <div class="col bg-black" style="height: 10px;">
-                    
-                </div>
+    <div class="offcanvas offcanvas-end bg-black" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Categorías</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <ul class="">
+                    {% for category in categorys %}
+                    <li class="nav">
+                        <a class="nav-link" href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">
+                            {{ category['description'] }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
-        
-            <div class="row d-flex justify-content-start">
-                <div class="col bg-black">
-                    <p class="text-white">Nosotros</p>
-                    <p class="text-white">Somos un periódico digital enfocado en lo político con sede en la ciudad de
-                        Chihuahua</p>
-                    <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col bg-black" style="height: 10px;">
-                    
-                </div>
-            </div>
-            <div class="row d-flex justify-content-evenly bg-black">
-                <div class="col bg-black">
-                    <a class="a-none" href="https://www.facebook.com/ElDemocrataMex/?ref=page_internal">
-                        <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/fblogo.png">
-                    </a>
-                </div>
-                <div class="col">
-                    <a class="a-none" href="https://instagram.com/eldemocratamex?utm_medium=copy_link">
-                        <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/iglogo.png">
-                    </a>
-                </div>
-                <div class="col">
-                    <a class="a-none" href="https://twitter.com/ElDemocrataMex">
-                        <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/twlogo.png">
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col bg-black" style="height: 10px;">
-                    
+            <div class="position-absolute bottom-0">
+                <p class="text-white">Nosotros</p>
+                <p class="text-white">Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua</p>
+                <div class="row d-flex justify-content-evenly bg-black">
+                    <div class="col bg-black">
+                        <a class="a-none" href="https://www.facebook.com/ElDemocrataMex/?ref=page_internal">
+                            <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/fblogo.png">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="a-none" href="https://instagram.com/eldemocratamex?utm_medium=copy_link">
+                            <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/iglogo.png">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="a-none" href="https://twitter.com/ElDemocrataMex">
+                            <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/twlogo.png">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-   
+    </div>
+
+    
+
+
+    {% block content %}{% endblock %}
+    <br>
+
+    <div class="container-fluid bg-black text-white">
+        <div class="row">
+            <div class="col bg-black" style="height: 10px;">
+
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-start">
+            <div class="col bg-black">
+                <p class="text-white">Nosotros</p>
+                <p class="text-white">Somos un periódico digital enfocado en lo político con sede en la ciudad de
+                    Chihuahua</p>
+                <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-black" style="height: 10px;">
+
+            </div>
+        </div>
+        <div class="row d-flex justify-content-evenly bg-black">
+            <div class="col bg-black">
+                <a class="a-none" href="https://www.facebook.com/ElDemocrataMex/?ref=page_internal">
+                    <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/fblogo.png">
+                </a>
+            </div>
+            <div class="col">
+                <a class="a-none" href="https://instagram.com/eldemocratamex?utm_medium=copy_link">
+                    <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/iglogo.png">
+                </a>
+            </div>
+            <div class="col">
+                <a class="a-none" href="https://twitter.com/ElDemocrataMex">
+                    <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/twlogo.png">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-black" style="height: 10px;">
+
+            </div>
+        </div>
+    </div>
+
 
 
     <!-- JavaScript Bundle with Popper -->
