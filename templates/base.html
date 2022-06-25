@@ -46,21 +46,22 @@
         <div class="offcanvas-body">
 
             <div>
-                <form class="d-flex">
-                    <input class="form-control me-1" type="search" placeholder="Buscar" aria-label="Search">
-                    <a type="submit">
+                <form class="d-flex" method="get">
+                    <input id="search" name="search" class="form-control me-1" type="search" placeholder="Buscar" aria-label="Search">
+                    <button type="submit" class="btn btn-light" for="search">
                         <svg id="i-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                             <circle cx="14" cy="14" r="12" />
                             <path d="M23 23 L30 30"  />
                         </svg>
-                    </a>
+                    </button>
                 </form>
             </div>
+            <br/>
             <div>
                 <ul class="">
                     {% for category in categorys %}
                     <li class="nav">
-                        <a class="nav-link" href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">
+                        <a class="nav-link text-white MenuCategory" href="{{ url_for('category_layout' ,idCategory=category['id_category']) }}">
                             {{ category['description'] }}
                         </a>
                     </li>
@@ -97,7 +98,7 @@
     {% block content %}{% endblock %}
     <br>
 
-    <div class="container-fluid bg-black text-white">
+    <div class="container-fluid bg-black text-white footer">
         <div class="row">
             <div class="col bg-black" style="height: 10px;">
 

@@ -9,6 +9,13 @@ application = Flask(__name__)
 
 @application.route('/', methods=['GET'])
 def index():
+    search = request.args.get('search')
+
+    print(search)
+
+    if search is None:
+        search = ''
+
     db, c = get_db()
     c.execute(
         'select id_category,description from categorys where status = 1'
@@ -23,9 +30,12 @@ def index():
             on n.id_category = c.id_category
             where c.status = 1
             and c.id_category not in (4)
+            and (n.title like %s
+                or n.paragraph1 like %s
+                or n.paragraph2 like %s)
             order by n.id_news desc
             limit 9
-            '''
+            ''', ('%' + search + '%', '%' + search + '%', '%' + search + '%')
     )
     news = c.fetchall()
 
@@ -37,9 +47,12 @@ def index():
             on n.id_category = c.id_category
             where c.status = 1
             and c.id_category in (4)
+            and (n.title like %s
+                or n.paragraph1 like %s
+                or n.paragraph2 like %s)
             order by n.id_news desc
             limit 3
-            '''
+            ''', ('%' + search + '%', '%' + search + '%', '%' + search + '%')
     )
     opinions = c.fetchall()
 
