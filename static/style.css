@@ -27,7 +27,7 @@ p {
 
 h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
+    font-weight: bold !important;
 }
 
 li {list-style:none; } 
