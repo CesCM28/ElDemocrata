@@ -37,13 +37,14 @@
 
     <div class="offcanvas offcanvas-end bg-black" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-            <button type="button" class="btn btn-black" data-bs-dismiss="offcanvas">
-                <img src="../static/Img/back.png">
-            </button>
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Categorías</h5>
+            <div>
+                <button type="button" class="btn btn-black" data-bs-dismiss="offcanvas">
+                    <img style="width: 30px;" src="../static/Img/back.png">
+                </button>
+                <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Categorías</h5>
+            </div>
         </div>
         <div class="offcanvas-body">
-
             <div>
                 <form class="d-flex" method="get">
                     <input id="search" name="search" class="form-control me-1" type="search" placeholder="El Democrata" onfocus="this.placeholder='Buscar...'" onblur="this.placeholder='El Democrata'" aria-label="Search">
@@ -68,8 +69,8 @@
                 </ul>
             </div>
             <div class="position-absolute bottom-0">
-                <p class="text-white" style="font-weight: bold !important;">Sobre nosotros:</p>
-                <p class="text-white">Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua</p>
+                <p class="text-white px-4"><b>Sobre nosotros:</b></p>
+                <p class="text-white px-4">Somos un periódico digital enfocado en lo político con sede en la ciudad de Chihuahua</p>
                 <div class="row d-flex justify-content-evenly bg-black">
                     <div class="col bg-black">
                         <a class="a-none" href="https://www.facebook.com/ElDemocrataMex/?ref=page_internal">
@@ -82,7 +83,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a class="a-none" href="https://twitter.com/ElDemocrataMex">
+                        <a class="a-none" href="https://www.tiktok.com/@eldemocratamex">
                             <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/tiktoklogo.png">
                         </a>
                     </div>
@@ -93,7 +94,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col bg-black" style="height: 10px;">
+                    <div class="col bg-black" style="height: 40px;">
         
                     </div>
                 </div>
@@ -135,6 +136,11 @@
             <div class="col">
                 <a class="a-none" href="https://instagram.com/eldemocratamex?utm_medium=copy_link">
                     <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/iglogo.png">
+                </a>
+            </div>
+            <div class="col">
+                <a class="a-none" href="https://www.tiktok.com/@eldemocratamex">
+                    <img class="rounded mx-auto d-block" style="width: 40px;" src="../static/Img/tiktoklogo.png">
                 </a>
             </div>
             <div class="col">

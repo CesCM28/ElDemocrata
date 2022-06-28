@@ -32,7 +32,7 @@ def index():
                 or n.paragraph1 like %s
                 or n.paragraph2 like %s)
             order by n.id_news desc
-            limit 9
+            limit 12
             ''', ('%' + search + '%', '%' + search + '%', '%' + search + '%')
     )
     news = c.fetchall()
@@ -49,7 +49,7 @@ def index():
                 or n.paragraph1 like %s
                 or n.paragraph2 like %s)
             order by n.id_news desc
-            limit 3
+            limit 4
             ''', ('%' + search + '%', '%' + search + '%', '%' + search + '%')
     )
     opinions = c.fetchall()
