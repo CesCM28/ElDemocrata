@@ -11,14 +11,12 @@ application = Flask(__name__)
 def index():
     search = request.args.get('search')
 
-    print(search)
-
     if search is None:
         search = ''
 
     db, c = get_db()
     c.execute(
-        'select id_category,description from categorys where status = 1'
+        'select id_category,description,icon from categorys where status = 1'
     )
     categorys = c.fetchall()
 
@@ -70,7 +68,7 @@ def category_layout(idCategory):
     news = c.fetchall()
 
     c.execute(
-        'select id_category,description from categorys where status = 1'
+        'select id_category,description,icon from categorys where status = 1'
     )
     categorys = c.fetchall()
 
@@ -93,7 +91,7 @@ def article_layout(idArticle):
     news = c.fetchone()
 
     c.execute(
-        'select id_category,description from categorys where status = 1'
+        'select id_category,description,icon from categorys where status = 1'
     )
     categorys = c.fetchall()
 
