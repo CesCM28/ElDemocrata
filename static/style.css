@@ -23,11 +23,16 @@
 
 p {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 400 !important;
 }
 
-h4, h5, h6 {
+h4, h5, h6, .bold{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold !important;
+}
+
+.h6 {
+    font-weight: 300 !important;
 }
 
 li {list-style:none; } 
