@@ -39,12 +39,12 @@ El Demócrata
     {% for opinion in opinions %}
     <div class="col d-flex justify-content-evenly mt-2">
       <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=opinion['id_news']) }}">
-        <div class="card" style="width: 18rem; height: 19rem;">
-          <img class="card-img-top" src="{{ opinion['link_img'] }}">
+        <div class="card overflow-hidden" style="width: 25rem;">
+          <img class="card-img-top" style="max-height: 224px;" src="{{ opinion['link_img'] }}">
           <div class="card-body">
-            <h6 class="card-title text-truncate">{{ opinion['title'] }}</h5>
+            <h6 class="card-title">{{ opinion['title'] }}</h5>
             <p class="card-subtitle mb-2 text-muted">{{ opinion['description'] }}</p>
-            <p class="h6 card-text text-truncate">{{ opinion['paragraph1'] }}</p>
+            <p class="h6 card-text">{{ opinion['paragraph1'] }}</p>
           </div>
         </div>
       </a>
@@ -62,12 +62,12 @@ El Demócrata
     {% for article in news %}
     <div class="col-sm d-flex justify-content-evenly mt-2">
       <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
-        <div class="card" style="width: 18rem; height: 17rem;">
-          <img class="card-img-top" src="{{ article['link_img'] }}">
+        <div class="card overflow-hidden" style="width: 25rem;">
+          <img class="card-img-top" style="max-height: 224px;" src="{{ article['link_img'] }}">
           <div class="card-body">
-            <h6 class="card-title text-truncate">{{ article['title'] }}</h5>
+            <h6 class="card-title">{{ article['title'] }}</h5>
             <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
-            <p class="h6 card-text text-truncate">{{ article['paragraph1'] }}</p>
+            <p class="h6 card-text">{{ article['paragraph1'] }}</p>
           </div>
         </div>
       </a>

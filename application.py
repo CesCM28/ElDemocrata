@@ -95,7 +95,10 @@ def article_layout(idArticle):
     )
     categorys = c.fetchall()
 
-    return render_template('eldemocrata/article.html', categorys=categorys, news=news)
+    c.execute('select id_news,title,created_at from news order by id_news desc limit 3')
+    snews = c.fetchall()
+
+    return render_template('eldemocrata/article.html', categorys=categorys, news=news, snews=snews)
 
 
 if __name__ == "__main__":

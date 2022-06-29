@@ -49,3 +49,19 @@ li {list-style:none; }
     position: relative;
     bottom: 0;
 }
+
+.card {
+    height: 25rem !important;
+}
+
+.card:hover {
+    height: auto !important;
+}
+
+.banner {
+    width: 200px !important;
+}
+
+.short-note:hover {
+    color: #2192D1!important;
+}
