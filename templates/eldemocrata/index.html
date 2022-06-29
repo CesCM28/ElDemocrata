@@ -30,7 +30,7 @@ El Demócrata
 {% block content %}
 <div class="container-fluid">
   <div class="row mt-3">
-    <div class="col-3">
+    <div class="col">
       <h4>Opiniones</h4>
     </div>
   </div>
@@ -43,8 +43,8 @@ El Demócrata
           <img class="card-img-top" style="max-height: 224px;" src="{{ opinion['link_img'] }}">
           <div class="card-body">
             <h6 class="card-title">{{ opinion['title'] }}</h5>
-            <p class="card-subtitle mb-2 text-muted">{{ opinion['description'] }}</p>
-            <p class="h6 card-text">{{ opinion['paragraph1'] }}</p>
+              <p class="card-subtitle mb-2 text-muted">{{ opinion['description'] }}</p>
+              <!-- <p class="h6 card-text">{{ opinion['paragraph1'] }}</p> -->
           </div>
         </div>
       </a>
@@ -53,27 +53,30 @@ El Demócrata
   </div>
 
   <div class="row mt-3">
-    <div class="col-3">
+    <div class="col">
       <h4>Notas</h4>
     </div>
   </div>
+
+  {% for article in news %}
+  {% if loop.index == 1 or loop.index == 4 or loop.index == 7 %}
   <div class="row">
-    
-    {% for article in news %}
+    {% endif %}
     <div class="col-sm d-flex justify-content-evenly mt-2">
       <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
         <div class="card overflow-hidden" style="width: 25rem;">
           <img class="card-img-top" style="max-height: 224px;" src="{{ article['link_img'] }}">
           <div class="card-body">
-            <h6 class="card-title">{{ article['title'] }}</h5>
+            <h5 class="card-title">{{ article['title'] }}</h5>
             <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
-            <p class="h6 card-text">{{ article['paragraph1'] }}</p>
+            <!-- <p class="h6 card-text">{{ article['paragraph1'] }}</p> -->
           </div>
         </div>
       </a>
     </div>
-    {% endfor %}
-    
+    {% if loop.index == 3 or loop.index == 6 or loop.index == 9 %}
   </div>
+  {% endif %}
+  {% endfor %}
 </div>
 {% endblock %}

@@ -33,7 +33,7 @@
     {% for article in news %}
     <div class="col-sm d-flex justify-content-evenly mt-2">
       <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
-        <div class="card" style="width: 18rem;">
+        <div class="card">
           <img class="card-img-top" src="{{ article['link_img'] }}">
           <div class="card-body">
             <h5 class="card-title">{{ article['title'] }}</h5>
