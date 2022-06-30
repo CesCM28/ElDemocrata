@@ -32,7 +32,7 @@ def index():
                 or n.paragraph1 like %s
                 or n.paragraph2 like %s)
             order by n.id_news desc
-            limit 12
+            limit 9
             ''', ('%' + search + '%', '%' + search + '%', '%' + search + '%')
     )
     news = c.fetchall()
@@ -49,7 +49,7 @@ def index():
                 or n.paragraph1 like %s
                 or n.paragraph2 like %s)
             order by n.id_news desc
-            limit 4
+            limit 3
             ''', ('%' + search + '%', '%' + search + '%', '%' + search + '%')
     )
     opinions = c.fetchall()
@@ -95,7 +95,10 @@ def article_layout(idArticle):
     )
     categorys = c.fetchall()
 
-    return render_template('eldemocrata/article.html', categorys=categorys, news=news)
+    c.execute('select id_news,title,created_at from news order by id_news desc limit 3')
+    snews = c.fetchall()
+
+    return render_template('eldemocrata/article.html', categorys=categorys, news=news, snews=snews)
 
 
 if __name__ == "__main__":
