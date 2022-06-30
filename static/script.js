@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
         fetch(urlCh)
             .then(response => { return response.json() })
             .then(data => {
-                temperaturaValor.textContent = `${data.main.temp} °`
+                temperaturaValor.textContent = `${Math.round(data.main.temp)}°`
                 //temperaturaCiudad.textContent = data.name
                 temperaturaIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
             })
@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
             fetch(url)
                 .then(response => { return response.json() })
                 .then(data => {
-                    temperaturaValor.textContent = `${data.main.temp} °`
+                    temperaturaValor.textContent = `${Math.round(data.main.temp)}°`
                     //temperaturaCiudad.textContent = data.name
                     temperaturaIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
                 })
