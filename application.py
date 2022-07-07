@@ -22,7 +22,7 @@ def index():
 
     c.execute(
         '''
-        select n.id_news,n.id_category,n.title,n.link_img,n.paragraph1,c.description
+        select n.id_news,n.id_category,n.title,n.link_img,n.paragraph1,c.description,n.created_at
             from news n 
             inner join categorys c
             on n.id_category = c.id_category

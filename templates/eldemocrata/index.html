@@ -29,54 +29,118 @@ El Demócrata
 
 {% block content %}
 <div class="container-fluid">
-  <div class="row mt-3">
-    <div class="col">
-      <h4>Opiniones</h4>
-    </div>
-  </div>
-
   <div class="row">
-    {% for opinion in opinions %}
-    <div class="col d-flex justify-content-evenly mt-2">
-      <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=opinion['id_news']) }}">
-        <div class="card overflow-hidden" style="width: 25rem;">
-          <img class="card-img-top" style="max-height: 224px;" src="{{ opinion['link_img'] }}">
-          <div class="card-body">
-            <h6 class="card-title">{{ opinion['title'] }}</h5>
-              <p class="card-subtitle mb-2 text-muted">{{ opinion['description'] }}</p>
-              <!-- <p class="h6 card-text">{{ opinion['paragraph1'] }}</p> -->
-          </div>
+    <div class="col">
+    {% for article in news %}
+      {% if loop.index == 1 or loop.index == 4 or loop.index == 7 %}
+      <div class="row">
+        {% endif %}
+        {% if loop.index == 1 %}
+        <div class="col d-flex justify-content-evenly mt-2">
+          <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
+            <div class="card">
+              <img class="card-img-top" src="{{ article['link_img'] }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ article['title'] }}</h5>
+                <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}{{ loop.index }}</p>
+                <!-- <p class="h6 card-text">{{ article['paragraph1'] }}</p> -->
+              </div>
+            </div>
+          </a>
         </div>
-      </a>
+        <div class="col-lg-3">
+        {% elif loop.index in (2, 3)%}
+        <div class="row">
+          <div class="col d-flex justify-content-evenly mt-2">
+          <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
+            <div class="card" >
+              <img class="card-img-top"  src="{{ article['link_img'] }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ article['title'] }}</h5>
+                <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
+                <!-- <p class="h6 card-text">{{ article['paragraph1'] }}</p> -->
+              </div>
+            </div>
+          </a>
+        </div>
+        </div>
+        {% if loop.index == 3 %}
+        </div>
+      </div>
     </div>
+      <div class="col-sm col-md-2">
+          Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        {% endif %}
+        {% else %}
+        <div class="col-sm d-flex justify-content-evenly mt-2">
+          <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
+            <div class="card overflow-hidden" style="max-width: 25rem;">
+              <img class="card-img-top" style="max-height: 224px;" src="{{ article['link_img'] }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ article['title'] }}</h5>
+                <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
+                <!-- <p class="h6 card-text">{{ article['paragraph1'] }}</p> -->
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endif %}
+        {% if loop.index == 3 or loop.index == 6 or loop.index == 9 %}
+      </div>
+      {% endif %}
+      {% if loop.index == 3 %}
+      <div class="row mt-3">
+        <div class="col">
+          <h4>Opiniones</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        {% for opinion in opinions %}
+        <div class="col-sm d-flex justify-content-evenly mt-2">
+          <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=opinion['id_news']) }}">
+            <div class="card overflow-hidden" style="max-width: 25rem;">
+              <img class="card-img-top" style="max-height: 224px;" src="{{ opinion['link_img'] }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ opinion['title'] }}</h5>
+                <p class="card-subtitle mb-2 text-muted">{{ opinion['description'] }}</p>
+                <!-- <p class="h6 card-text">{{ opinion['paragraph1'] }}</p> -->
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <h4>Noticias</h4>
+        </div>
+      </div>
+      {% endif %}
     {% endfor %}
-  </div>
-
-  <div class="row mt-3">
-    <div class="col">
-      <h4>Notas</h4>
     </div>
-  </div>
-
-  {% for article in news %}
-  {% if loop.index == 1 or loop.index == 4 or loop.index == 7 %}
-  <div class="row">
-    {% endif %}
-    <div class="col-sm d-flex justify-content-evenly mt-2">
-      <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
-        <div class="card overflow-hidden" style="width: 25rem;">
-          <img class="card-img-top" style="max-height: 224px;" src="{{ article['link_img'] }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ article['title'] }}</h5>
-            <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
-            <!-- <p class="h6 card-text">{{ article['paragraph1'] }}</p> -->
+    <div class="col-sm col-md-2">
+      
+      <div class="row">
+        <div class="col">
+          {% for title in news %}
+          <div class="row pt-2 d-none d-md-block">
+            <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=title['id_news']) }}">
+              <div class="col short-note">
+                {{ title['title'] }} <br />
+                <p class="text-muted date">{{ title['created_at'].strftime('%d/%m/%Y') }}</p>
+              </div>
+            </a>
           </div>
+          {% endfor %}
         </div>
-      </a>
+      </div>
     </div>
-    {% if loop.index == 3 or loop.index == 6 or loop.index == 9 %}
   </div>
-  {% endif %}
-  {% endfor %}
 </div>
 {% endblock %}
