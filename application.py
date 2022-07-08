@@ -21,6 +21,11 @@ def index():
     categorys = c.fetchall()
 
     c.execute(
+        'select id_banner,link from banners'
+    )
+    banners = c.fetchall()
+
+    c.execute(
         '''
         select n.id_news,n.id_category,n.title,n.link_img,n.paragraph1,c.description,n.created_at
             from news n 
@@ -54,7 +59,7 @@ def index():
     )
     opinions = c.fetchall()
 
-    return render_template('eldemocrata/index.html', categorys=categorys, news=news, opinions=opinions)
+    return render_template('eldemocrata/index.html', categorys=categorys, news=news, opinions=opinions, banners=banners)
 
 @application.route('/category/<int:idCategory>', methods=['GET'])
 def category_layout(idCategory):

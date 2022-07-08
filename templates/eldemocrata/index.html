@@ -28,8 +28,8 @@ El Demócrata
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-  <div class="row">
+<div class="container-xxl">
+  <div class="row d-flex justify-content-center">
     <div class="col">
     {% for article in news %}
       {% if loop.index == 1 or loop.index == 4 or loop.index == 7 %}
@@ -42,8 +42,8 @@ El Demócrata
               <img class="card-img-top" src="{{ article['link_img'] }}">
               <div class="card-body">
                 <h5 class="card-title">{{ article['title'] }}</h5>
-                <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}{{ loop.index }}</p>
-                <!-- <p class="h6 card-text">{{ article['paragraph1'] }}</p> -->
+                <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
+                <!-- <p class="h6 card-text">{{ article['subtitle'] }}</p> -->
               </div>
             </div>
           </a>
@@ -58,7 +58,7 @@ El Demócrata
               <div class="card-body">
                 <h5 class="card-title">{{ article['title'] }}</h5>
                 <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
-                <!-- <p class="h6 card-text">{{ article['paragraph1'] }}</p> -->
+                <!-- <p class="h6 card-text">{{ article['subtitle'] }}</p> -->
               </div>
             </div>
           </a>
@@ -68,7 +68,7 @@ El Demócrata
         </div>
       </div>
     </div>
-      <div class="col-sm col-md-2">
+      <div class="col-sm col-md-3">
           Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
       </div>
   </div>
@@ -84,7 +84,7 @@ El Demócrata
               <div class="card-body">
                 <h5 class="card-title">{{ article['title'] }}</h5>
                 <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
-                <!-- <p class="h6 card-text">{{ article['paragraph1'] }}</p> -->
+                <!-- <p class="h6 card-text">{{ article['subtitle'] }}</p> -->
               </div>
             </div>
           </a>
@@ -124,12 +124,12 @@ El Demócrata
       {% endif %}
     {% endfor %}
     </div>
-    <div class="col-sm col-md-2">
+    <div class="col-sm col-md-3">
       
       <div class="row">
         <div class="col">
           {% for title in news %}
-          <div class="row pt-2 d-none d-md-block">
+          <div class="row d-none d-md-block">
             <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=title['id_news']) }}">
               <div class="col short-note">
                 {{ title['title'] }} <br />
