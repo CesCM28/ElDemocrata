@@ -98,7 +98,7 @@ def article_layout(idArticle):
     )
     news = c.fetchone()
 
-    c.execute('select id_news,title,created_at from news order by id_news desc limit 3')
+    c.execute('select id_news,title,created_at from news order by id_news desc limit 5')
     snews = c.fetchall()
 
     c.execute(

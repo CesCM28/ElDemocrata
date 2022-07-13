@@ -30,7 +30,7 @@
 
 {% block content %}
 <div class="container-xxl">
-    <div class="row d-flex justify-content-evenly">
+    <div class="row">
         <div class="col mx-2 justify-content-start">
             <div class="row mt-4">
                 <div class="col text-start">
@@ -51,25 +51,11 @@
             {% endif %}
             <div class="row">
                 <div class="col">
-                    <img class="img-fluid mx-auto d-block ArtImg" 
-                        src="{{ news['link_img'] }}">
+                    <img class="img-fluid mx-auto d-block ArtImg" src="{{ news['link_img'] }}">
                 </div>
             </div>
-        </div>
-        <div class="col-sm col-lg-3" style="background-color: #fff;">
-            <div class="row">
-                <div class="col" style="height: 10rem;">Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
-            </div>
-            <div class="row">
-                <div class="col" style="height: 10rem;">Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
-            </div>
-            <div class="row">
-                <div class="col" style="height: 10rem;">Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
-            </div>
-        </div>
-    </div>
-    <div class="row d-flex justify-content-evenly">
-        <div class="col mx-2 mt-4 justify-content-start"> 
+            <div class="row d-flex justify-content-evenly">
+                <div class="col mx-2 mt-4 justify-content-start">
                     <p class="PNota">{{ news['paragraph1'] }}</p>
                     {% if news['paragraph2'] != None and news['paragraph2'] != '' %}
                     <p class="PNota">{{ news['paragraph2'] }}</p>
@@ -86,14 +72,29 @@
                     {% if news['paragraph6'] != None and news['paragraph6'] != '' %}
                     <p class="PNota">{{ news['paragraph6'] }}</p>
                     {% endif %}
+                </div>
+            </div>
         </div>
-        
-        <div class="col-sm col-lg-3">
+
+        <div class="col-sm col-lg-3" style="background-color: #fff;">
+            <div class="row">
+                <div class="col" style="height: 10rem;">Anúnciate aquí <a
+                        href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
+            </div>
+            <div class="row">
+                <div class="col" style="height: 10rem;">Anúnciate aquí <a
+                        href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
+            </div>
+            <div class="row">
+                <div class="col" style="height: 10rem;">Anúnciate aquí <a
+                        href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
+            </div>
+
             {% for title in snews %}
             <div class="row pt-2">
                 <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=title['id_news']) }}">
                     <div class="col short-note">
-                        {{ title['title'] }} <br/>
+                        {{ title['title'] }} <br />
                         <p class="text-muted">{{ title['created_at'].strftime('%d/%m/%Y') }}</p>
                     </div>
                 </a>
