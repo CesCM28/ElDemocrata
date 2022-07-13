@@ -61,7 +61,7 @@ def index():
 
     return render_template('eldemocrata/index.html', categorys=categorys, news=news, opinions=opinions, banners=banners)
 
-@application.route('/category/<int:idCategory>', methods=['GET'])
+@application.route('/<int:idCategory>/category', methods=['GET'])
 def category_layout(idCategory):
     db, c = get_db()
 
@@ -71,6 +71,9 @@ def category_layout(idCategory):
         order by id_news desc''', (idCategory,)
     )
     news = c.fetchall()
+
+    c.execute('select id_news,title,created_at from news order by id_news desc limit 3')
+    snews = c.fetchall()
 
     c.execute(
         'select id_category,description,icon from categorys where status = 1'
@@ -82,26 +85,26 @@ def category_layout(idCategory):
     )
     category = c.fetchone()
 
-    return render_template('eldemocrata/category.html', categorys=categorys, news=news, category=category)
+    return render_template('eldemocrata/category.html', categorys=categorys, news=news, category=category, snews=snews)
 
 
-@application.route('/article/<int:idArticle>', methods=['GET'])
+@application.route('/<int:idArticle>/articulo', methods=['GET'])
 def article_layout(idArticle):
     db, c = get_db()
 
     c.execute(
-        '''select id_news,id_category,paragraph1,paragraph2,paragraph3,paragraph4,paragraph5,paragraph6,title,link_img
+        '''select id_news,id_category,paragraph1,paragraph2,paragraph3,paragraph4,paragraph5,paragraph6,title,subtitle,link_img,created_at
         from news where id_news = %s''', (idArticle,)
     )
     news = c.fetchone()
+
+    c.execute('select id_news,title,created_at from news order by id_news desc limit 3')
+    snews = c.fetchall()
 
     c.execute(
         'select id_category,description,icon from categorys where status = 1'
     )
     categorys = c.fetchall()
-
-    c.execute('select id_news,title,created_at from news order by id_news desc limit 3')
-    snews = c.fetchall()
 
     return render_template('eldemocrata/article.html', categorys=categorys, news=news, snews=snews)
 

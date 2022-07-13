@@ -28,9 +28,55 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-xxl">
+  <div class="row d-flex justify-content-center">
+    <div class="col">
+  {% for article in news %}
+    {% if loop.index in (1, 4, 7) %}
   <div class="row">
-    {% for article in news %}
+    {% endif %}
+    {% if loop.index == 1 %}
+    <div class="col d-flex justify-content-evenly mt-2">
+      <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
+        <div class="card">
+          <img class="card-img-top" src="{{ article['link_img'] }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ article['title'] }}</h5>
+            <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
+            <!-- <p class="h6 card-text">{{ article['subtitle'] }}</p> -->
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-lg-3">
+    {% elif loop.index in (2, 3) %}
+    <div class="row">
+      <div class="col d-flex justify-content-evenly mt-2">
+      <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
+        <div class="card" >
+          <img class="card-img-top"  src="{{ article['link_img'] }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ article['title'] }}</h5>
+            <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
+            <!-- <p class="h6 card-text">{{ article['subtitle'] }}</p> -->
+          </div>
+        </div>
+      </a>
+    </div>
+    </div>
+    {% if loop.index == 3 %}
+        </div>
+      </div>
+    </div>
+      <div class="col-sm col-md-3">
+          Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        {% endif %}
+    {% else %}
     <div class="col-sm d-flex justify-content-evenly mt-2">
       <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
         <div class="card">
@@ -38,12 +84,33 @@
           <div class="card-body">
             <h5 class="card-title">{{ article['title'] }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ category['description'] }}</h5>
-            <p class="card-text">{{ article['paragraph1'] }}</p>
+              <p class="card-text">{{ article['paragraph1'] }}</p>
           </div>
         </div>
       </a>
     </div>
-    {% endfor %}
+    {% endif %}
+    {% if loop.index in (3, 6, 9) %}
   </div>
+    {% endif %}
+  {% endfor %}
+</div>
+<div class="col-sm col-md-3">
+  <div class="row">
+    <div class="col">
+      {% for title in snews %}
+      <div class="row d-none d-md-block">
+        <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=title['id_news']) }}">
+          <div class="col short-note">
+            {{ title['title'] }} <br />
+            <p class="text-muted date">{{ title['created_at'].strftime('%d/%m/%Y') }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
 </div>
 {% endblock %}

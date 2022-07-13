@@ -32,9 +32,9 @@ El Demócrata
   <div class="row d-flex justify-content-center">
     <div class="col">
     {% for article in news %}
-      {% if loop.index == 1 or loop.index == 4 or loop.index == 7 %}
+      {% if loop.index in (1, 4, 7) %}
       <div class="row">
-        {% endif %}
+      {% endif %}
         {% if loop.index == 1 %}
         <div class="col d-flex justify-content-evenly mt-2">
           <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
@@ -49,7 +49,7 @@ El Demócrata
           </a>
         </div>
         <div class="col-lg-3">
-        {% elif loop.index in (2, 3)%}
+        {% elif loop.index in (2, 3) %}
         <div class="row">
           <div class="col d-flex justify-content-evenly mt-2">
           <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=article['id_news']) }}">
@@ -90,7 +90,7 @@ El Demócrata
           </a>
         </div>
         {% endif %}
-        {% if loop.index == 3 or loop.index == 6 or loop.index == 9 %}
+        {% if loop.index in (3, 6, 9) %}
       </div>
       {% endif %}
       {% if loop.index == 3 %}
