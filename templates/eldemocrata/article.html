@@ -57,38 +57,64 @@
             <div class="row d-flex justify-content-evenly">
                 <div class="col mx-2 mt-4 justify-content-start">
                     <p class="PNota">{{ news['paragraph1'] }}</p>
+                    {% if news['link_video'] != '' and news['position_video'] == 1 %}
+                    <div class="d-flex justify-content-evenly">
+                        {{ news['link_video'] }}
+                    </div>
+                    {% endif %}
                     {% if news['paragraph2'] != None and news['paragraph2'] != '' %}
                     <p class="PNota">{{ news['paragraph2'] }}</p>
+                    {% if news['link_video'] != '' and news['position_video'] == 2 %}
+                    <div class="d-flex justify-content-evenly">
+                        {{ news['link_video'] }}
+                    </div>
+                    {% endif %}
                     {% endif %}
                     {% if news['paragraph3'] != None and news['paragraph3'] != '' %}
-                    <p class="PNota">{{ news['paragraph3'] }}no</p>
+                    <p class="PNota">{{ news['paragraph3'] }}</p>
+                    {% if news['link_video'] != '' and news['position_video'] == 3 %}
+                    <div class="d-flex justify-content-evenly">
+                        {{ news['link_video'] }}
+                    </div>
+                    {% endif %}
                     {% endif %}
                     {% if news['paragraph4'] != None and news['paragraph4'] != '' %}
-                    <p class="PNota">{{ news['paragraph4'] }}nu</p>
+                    <p class="PNota">{{ news['paragraph4'] }}</p>
+                    {% if news['link_video'] != '' and news['position_video'] == 4 %}
+                    <div class="d-flex justify-content-evenly">
+                        {{ news['link_video'] }}
+                    </div>
+                    {% endif %}
                     {% endif %}
                     {% if news['paragraph5'] != None and news['paragraph5'] != '' %}
                     <p class="PNota">{{ news['paragraph5'] }}</p>
+                    {% if news['link_video'] != '' and news['position_video'] == 5 %}
+                    <div class="d-flex justify-content-evenly">
+                        {{ news['link_video'] }}
+                    </div>
+                    {% endif %}
                     {% endif %}
                     {% if news['paragraph6'] != None and news['paragraph6'] != '' %}
                     <p class="PNota">{{ news['paragraph6'] }}</p>
+                    {% if news['link_video'] != '' and news['position_video'] == 6 %}
+                    <div class="d-flex justify-content-evenly">
+                        {{ news['link_video'] }}
+                    </div>
+                    {% endif %}
                     {% endif %}
                 </div>
             </div>
         </div>
 
         <div class="col-sm col-lg-3" style="background-color: #fff;">
+            
+            {% for banner in banners %}
             <div class="row">
-                <div class="col" style="height: 10rem;">Anúnciate aquí <a
-                        href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
+                <div class="col" style="height: 10rem;">
+                    Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+                </div>
             </div>
-            <div class="row">
-                <div class="col" style="height: 10rem;">Anúnciate aquí <a
-                        href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
-            </div>
-            <div class="row">
-                <div class="col" style="height: 10rem;">Anúnciate aquí <a
-                        href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a></div>
-            </div>
+            {% endfor %}
 
             {% for title in snews %}
             <div class="row pt-2">

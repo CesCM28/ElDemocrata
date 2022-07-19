@@ -21,7 +21,7 @@ def index():
     categorys = c.fetchall()
 
     c.execute(
-        'select id_banner,link from banners'
+        'select id_banner,link from banners where site = 1'
     )
     banners = c.fetchall()
 
@@ -85,7 +85,12 @@ def category_layout(idCategory):
     )
     category = c.fetchone()
 
-    return render_template('eldemocrata/category.html', categorys=categorys, news=news, category=category, snews=snews)
+    c.execute(
+        'select id_banner,link from banners where site = 2'
+    )
+    banners = c.fetchall()
+
+    return render_template('eldemocrata/category.html', categorys=categorys, news=news, category=category, snews=snews, banners=banners)
 
 
 @application.route('/<int:idArticle>/articulo', methods=['GET'])
@@ -93,7 +98,7 @@ def article_layout(idArticle):
     db, c = get_db()
 
     c.execute(
-        '''select id_news,id_category,paragraph1,paragraph2,paragraph3,paragraph4,paragraph5,paragraph6,title,subtitle,link_img,created_at
+        '''select id_news,id_category,paragraph1,paragraph2,paragraph3,paragraph4,paragraph5,paragraph6,title,subtitle,link_img,link_video,position_video,created_at
         from news where id_news = %s''', (idArticle,)
     )
     news = c.fetchone()
@@ -106,7 +111,12 @@ def article_layout(idArticle):
     )
     categorys = c.fetchall()
 
-    return render_template('eldemocrata/article.html', categorys=categorys, news=news, snews=snews)
+    c.execute(
+        'select id_banner,link from banners where site = 3'
+    )
+    banners = c.fetchall()
+
+    return render_template('eldemocrata/article.html', categorys=categorys, news=news, snews=snews, banners=banners)
 
 
 if __name__ == "__main__":

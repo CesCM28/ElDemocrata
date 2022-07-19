@@ -69,7 +69,13 @@ El Demócrata
       </div>
     </div>
       <div class="col-sm col-md-3">
-          Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+        {% for banner in banners %}
+        <div class="row">
+            <div class="col" style="height: 10rem;">
+                Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+            </div>
+        </div>
+        {% endfor %}
       </div>
   </div>
   <div class="row">
