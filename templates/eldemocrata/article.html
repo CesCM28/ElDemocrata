@@ -59,14 +59,14 @@
                     <p class="PNota">{{ news['paragraph1'] }}</p>
                     {% if news['link_video'] != '' and news['position_video'] == 1 %}
                     <div class="d-flex justify-content-evenly">
-                        {{ news['link_video'] }}
+                        {{ news['link_video'] | safe }}
                     </div>
                     {% endif %}
                     {% if news['paragraph2'] != None and news['paragraph2'] != '' %}
                     <p class="PNota">{{ news['paragraph2'] }}</p>
                     {% if news['link_video'] != '' and news['position_video'] == 2 %}
                     <div class="d-flex justify-content-evenly">
-                        {{ news['link_video'] }}
+                        {{ news['link_video'] | safe }}
                     </div>
                     {% endif %}
                     {% endif %}
