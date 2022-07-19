@@ -110,7 +110,7 @@ El Demócrata
         {% for opinion in opinions %}
         <div class="col-sm d-flex justify-content-evenly mt-2">
           <a class="a-none text-black" href="{{ url_for('article_layout', idArticle=opinion['id_news']) }}">
-            <div class="card overflow-hidden" style="max-width: 25rem;">
+            <div class="card">
               <img class="card-img-top" style="max-height: 224px;" src="{{ opinion['link_img'] }}">
               <div class="card-body">
                 <h5 class="card-title">{{ opinion['title'] }}</h5>
