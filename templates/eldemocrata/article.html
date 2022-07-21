@@ -34,7 +34,7 @@
         <div class="col mx-2 justify-content-start">
             <div class="row mt-4">
                 <div class="col text-start">
-                    <h1>{{ news['title'] }}</h4>
+                    <h1>{{ news['title'] | safe }}</h4>
                 </div>
             </div>
             <div class="row">
@@ -45,7 +45,7 @@
             {% if news['subtitle'] != '' %}
             <div class="row mb-4">
                 <div class="col text-start">
-                    <h5>{{ news['subtitle'] }}</h4>
+                    <h5>{{ news['subtitle'] | safe }}</h4>
                 </div>
             </div>
             {% endif %}
@@ -56,14 +56,14 @@
             </div>
             <div class="row d-flex justify-content-evenly">
                 <div class="col mx-2 mt-4 justify-content-start">
-                    <p class="PNota">{{ news['paragraph1'] }}</p>
+                    <p class="PNota">{{ news['paragraph1'] | safe }}</p>
                     {% if news['link_video'] != '' and news['position_video'] == 1 %}
                     <div class="d-flex justify-content-evenly">
                         {{ news['link_video'] | safe }}
                     </div>
                     {% endif %}
                     {% if news['paragraph2'] != None and news['paragraph2'] != '' %}
-                    <p class="PNota">{{ news['paragraph2'] }}</p>
+                    <p class="PNota">{{ news['paragraph2'] | safe }}</p>
                     {% if news['link_video'] != '' and news['position_video'] == 2 %}
                     <div class="d-flex justify-content-evenly">
                         {{ news['link_video'] | safe }}
@@ -71,34 +71,34 @@
                     {% endif %}
                     {% endif %}
                     {% if news['paragraph3'] != None and news['paragraph3'] != '' %}
-                    <p class="PNota">{{ news['paragraph3'] }}</p>
+                    <p class="PNota">{{ news['paragraph3'] | safe }}</p>
                     {% if news['link_video'] != '' and news['position_video'] == 3 %}
                     <div class="d-flex justify-content-evenly">
-                        {{ news['link_video'] }}
+                        {{ news['link_video'] | safe }}
                     </div>
                     {% endif %}
                     {% endif %}
                     {% if news['paragraph4'] != None and news['paragraph4'] != '' %}
-                    <p class="PNota">{{ news['paragraph4'] }}</p>
+                    <p class="PNota">{{ news['paragraph4'] | safe }}</p>
                     {% if news['link_video'] != '' and news['position_video'] == 4 %}
                     <div class="d-flex justify-content-evenly">
-                        {{ news['link_video'] }}
+                        {{ news['link_video'] | safe }}
                     </div>
                     {% endif %}
                     {% endif %}
                     {% if news['paragraph5'] != None and news['paragraph5'] != '' %}
-                    <p class="PNota">{{ news['paragraph5'] }}</p>
+                    <p class="PNota">{{ news['paragraph5'] | safe }}</p>
                     {% if news['link_video'] != '' and news['position_video'] == 5 %}
                     <div class="d-flex justify-content-evenly">
-                        {{ news['link_video'] }}
+                        {{ news['link_video'] | safe }}
                     </div>
                     {% endif %}
                     {% endif %}
                     {% if news['paragraph6'] != None and news['paragraph6'] != '' %}
-                    <p class="PNota">{{ news['paragraph6'] }}</p>
+                    <p class="PNota">{{ news['paragraph6'] | safe }}</p>
                     {% if news['link_video'] != '' and news['position_video'] == 6 %}
                     <div class="d-flex justify-content-evenly">
-                        {{ news['link_video'] }}
+                        {{ news['link_video'] | safe }}
                     </div>
                     {% endif %}
                     {% endif %}
