@@ -23,7 +23,7 @@
 <meta property="twitter:title" content="{{ news['title'] }}">
 <meta property="twitter:description" content="{{ news['subtitle'] }}">
 <meta property="twitter:image" content="{{ news['link_img'] }}">
-<link rel="icon" type="image/x-icon" href="../../static/Img/favicon.ico"
+<link rel="icon" type="image/x-icon" href="../../static/Img/favicon.ico">
 {% endblock %}
 
 {% block content %}
@@ -108,8 +108,10 @@
             
             {% for banner in banners %}
             <div class="row">
-                <div class="col" style="height: 10rem;">
-                    Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
+                <div class="col my-2" style="height: 100px;">
+                    <a href="{{ banner['name'] }}" target="_blank">
+                        <img class="img-fluid mx-auto d-block ArtImg" src="{{ banner['link'] }}">
+                    </a>
                 </div>
             </div>
             {% endfor %}

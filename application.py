@@ -17,7 +17,7 @@ def getCategorys(c):
 
 # return the list banners of the page to show
 def getBanners(c, site):
-    c.execute('select id_banner,link from banners where site = %s', (site,))
+    c.execute('select id_banner,name,link from banners where site = %s', (site,))
     return c.fetchall()
 
 # return the short news for the site right
@@ -85,7 +85,8 @@ def category_layout(idCategory):
     c.execute(
         '''select id_news,id_category,title,link_img,paragraph1
         from news where id_category = %s
-        order by id_news desc''', (idCategory,)
+        order by id_news desc
+        limit 9''', (idCategory,)
     )
     news = c.fetchall()
 

@@ -71,9 +71,11 @@ El Demócrata
       <div class="col-sm col-md-3">
         {% for banner in banners %}
         <div class="row">
-            <div class="col" style="height: 10rem;">
-                Anúnciate aquí <a href="mailto:contacto@eldemocrata.mx">contacto@eldemocrata.mx</a>
-            </div>
+          <div class="col my-2" style="height: 100px;">
+            <a href="{{ banner['name'] }}" target="_blank">
+              <img class="img-fluid mx-auto d-block ArtImg" src="{{ banner['link'] }}">
+            </a>
+          </div>
         </div>
         {% endfor %}
       </div>
