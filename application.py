@@ -17,7 +17,7 @@ def getCategorys(c):
 
 # return the list banners of the page to show
 def getBanners(c, site):
-    c.execute('select id_banner,name,link from banners where site = %s', (site,))
+    c.execute('select id_banner,name,link,href_link from banners where site = %s', (site,))
     return c.fetchall()
 
 # return the short news for the site right
