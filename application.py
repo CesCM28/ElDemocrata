@@ -22,7 +22,7 @@ def getBanners(c, site):
 
 # return the short news for the site right
 def getShortNews(c, limit):
-    c.execute('select id_news,title,created_at from news order by id_news desc limit %s', (limit,))
+    c.execute('select id_news,title,created_at from news where status = 1 order by id_news desc limit %s', (limit,))
     return c.fetchall()
 
 
@@ -45,6 +45,7 @@ def index():
             inner join categorys c
             on n.id_category = c.id_category
             where c.status = 1
+            and n.status = 1
             and c.id_category not in (4)
             and (n.title like %s
                 or n.paragraph1 like %s
@@ -62,6 +63,7 @@ def index():
             inner join categorys c
             on n.id_category = c.id_category
             where c.status = 1
+            and n.status = 1
             and c.id_category in (4)
             and (n.title like %s
                 or n.paragraph1 like %s
@@ -85,6 +87,7 @@ def category_layout(idCategory):
     c.execute(
         '''select id_news,id_category,title,link_img,paragraph1
         from news where id_category = %s
+        where status = 1
         order by id_news desc
         limit 9''', (idCategory,)
     )
