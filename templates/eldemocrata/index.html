@@ -28,7 +28,7 @@ El Demócrata
 {% endblock %}
 
 {% block content %}
-<div class="container-xxl">
+<div class="container-xxl mt-3">
   <div class="row d-flex justify-content-center">
     <div class="col">
     {% for article in news %}
@@ -43,7 +43,7 @@ El Demócrata
               <div class="card-body">
                 <h5 class="card-title">{{ article['title'] }}</h5>
                 <p class="card-subtitle mb-2 text-muted">{{ article['description'] }}</p>
-                <!-- <p class="h6 card-text">{{ article['subtitle'] }}</p> -->
+                <p class="h6 card-text">{{ article['subtitle'] }}</p>
               </div>
             </div>
           </a>
