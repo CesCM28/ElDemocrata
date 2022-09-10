@@ -10,7 +10,7 @@ INDEX = 1
 CATEGORY = 2
 ARTICLE = 3
 
-# return the list of the categorys for menu, simple query
+# return the list of the categorys for menu, simple query 
 def getCategorys(c):
     c.execute('select id_category,description,icon from categorys where status = 1')
     return c.fetchall()
